@@ -1,0 +1,73 @@
+---
+description: React best practices and patterns for modern web applications
+globs: **/*.tsx, **/*.ts
+---
+
+# React Best Practices & Working Style
+
+## Goals
+
+- Ship accessible, readable, maintainable React UI with TypeScript.
+- Prefer clarity over micro‑optimizations; measure before optimizing.
+
+## Working Style (for AI/codegen)
+
+- Think step‑by‑step. Draft pseudocode for non‑trivial tasks, then implement.
+- Follow user requirements to the letter; if unknown, state assumptions.
+- Produce complete, correct, DRY code with proper imports and names.
+- Prefer early returns; avoid TODOs/placeholders.
+- If something has no single correct answer, say so explicitly.
+
+## Component Structure
+
+- Prefer functional components; split large components into focused pieces.
+- Favor composition over inheritance; extract reusable logic into custom hooks.
+- Name event handlers with `handle*` prefix (e.g., `handleClick`, `handleKeyDown`).
+- Keep view components dumb; push data‑fetching/side‑effects to hooks.
+
+## Hooks
+
+- Follow the Rules of Hooks.
+- Keep hooks focused and small; composable hooks > monolithic hooks.
+- Manage effects deliberately: correct dependency arrays; always add cleanups.
+- Avoid conditional/nested hook calls.
+
+## State Management
+
+- Local UI state: `useState`.
+- Related/branchy state: `useReducer` with explicit actions.
+- Shared state: Context or a lightweight store; keep state near where it’s used.
+- Avoid prop‑drilling by lifting state or introducing context judiciously.
+
+## Performance
+
+- Prevent waste, don’t pre‑optimize.
+- Memoize **stable inputs** only: `useMemo`, `useCallback`, `React.memo`.
+- Use proper `key` in lists; avoid index keys for dynamic lists.
+- Lazy‑load heavy routes/components; split bundles where it helps UX.
+
+## Forms
+
+- Prefer controlled inputs; use a form lib for complex forms (e.g., RHF + Zod).
+- Validate on meaningful triggers; surface field + form errors accessibly.
+- Represent pending/disabled states and optimistic UI clearly.
+
+## Error & Loading States
+
+- Provide user‑friendly errors; add actionable recovery when possible.
+- Use Error Boundaries for render errors; handle async errors in code paths.
+- Co‑locate loading/error UI with the region they affect; prefer granular boundaries.
+
+## Accessibility (A11y)
+
+- Use semantic HTML; roles only when semantics aren’t available.
+- Ensure keyboard support (focus order, focus traps, visible focus ring).
+- Manage focus on route/major UI changes; announce status with ARIA‑live when needed.
+- Images need meaningful `alt`; decorative images should be empty `alt`.
+
+## Testing (React Testing Library)
+
+- Test from the user’s perspective; prefer `getByRole(..., { name })`.
+- Interactions via `userEvent`; `fireEvent` only for low‑level events.
+- Async: prefer `findBy*`; use `waitFor` with specific expectations.
+- Cover error paths and edge cases.

@@ -1,0 +1,46 @@
+---
+description: TypeScript rules for React codebases (strict, readable, safe)
+globs: **/*.ts, **/*.tsx
+---
+
+# TypeScript Guidelines
+
+## Compiler & Project
+
+- Use `"strict": true`; no implicit `any`.
+- Use path aliases sparingly; avoid deep relative import chains.
+
+## Types & Interfaces
+
+- Prefer `type` aliases for unions/intersections; `interface` for object shape extension.
+- Model domain with discriminated unions; eliminate `null | undefined` where possible.
+- Avoid `enum` unless interop requires; prefer union string literals + mapped types.
+- Mark immutable data as `readonly`.
+
+## Functions & Props
+
+- Type functions with explicit params/returns for public APIs.
+- Event handlers: `const handleX = (e: React.MouseEvent<HTMLButtonElement>) => {}` when needed; otherwise rely on inference.
+- Avoid `React.FC` for components; type props explicitly: `type Props = { ... }`.
+- Use generics thoughtfully; constrain `T` (e.g., `<T extends string>`).
+
+## Narrowing & Safety
+
+- Prefer `unknown` over `any`; narrow via predicates and `in`/`typeof`/`instanceof`.
+- Exhaustive `switch` with `never` to catch unhandled cases.
+- Avoid type assertions; if needed, isolate and justify.
+
+## Data & API
+
+- Define DTO types separately from UI types; map explicitly.
+- Validate external data at boundaries (e.g., Zod) before trusting types.
+
+## Utilities & Patterns
+
+- Leverage built‑ins (`Partial`, `Pick`, `Omit`, `Record`, `NonNullable`).
+- Derive keys with `as const` and indexed access types.
+
+## Tooling
+
+- ESLint + `@typescript-eslint` with import/order and no‑unused‑vars.
+- TS‑aware path resolution in Jest/Vitest and Storybook.

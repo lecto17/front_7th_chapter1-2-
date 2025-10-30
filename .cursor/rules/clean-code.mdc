@@ -1,0 +1,42 @@
+---
+description: Clean code principles for React/TypeScript in this repo
+globs: **/*
+---
+
+# Clean Code Principles & Codegen Rules
+
+## Principles
+
+- Prefer clarity over cleverness; small, single‑purpose modules.
+- Early returns to reduce nesting.
+- DRY: Extract helpers or hooks when duplication appears.
+- Name things descriptively; avoid abbreviations that hide meaning.
+- Keep functions pure where possible; isolate side‑effects.
+
+## Accessibility Defaults (React‑correct)
+
+- Use `className`, not `class:`.
+- Use `onClick`, `onKeyDown` (not `on:click`/`on:keydown`).
+- Interactive elements must be native controls when possible; if custom, add `role`, keyboard handlers, focus management, and ARIA states.
+- Maintain tab order and visible focus.
+
+## Coding Style
+
+- Use `const` by default; `let` only when reassignment is required.
+- Event handlers prefixed with `handle*`.
+- Keep modules short; one default export per file when it improves DX.
+- No lingering `console.log` in production code paths; centralize logging.
+
+## Process for Non‑Trivial Tasks
+
+1. Write a short problem statement and acceptance criteria.
+2. Draft pseudocode of the approach.
+3. Implement; keep functions small with early returns.
+4. Add tests (unit/integration) and stories where applicable.
+5. Self‑review against these rules before submitting.
+
+## Deliverables (for AI/codegen)
+
+- Provide complete, working code with imports.
+- No placeholders or TODOs.
+- If constraints or inputs are ambiguous, state assumptions explicitly.

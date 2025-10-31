@@ -1,0 +1,65 @@
+{
+  "taskId": "task-20251031-234500",
+  "testFiles": [
+    {
+      "path": "src/__tests__/medium.integration.spec.tsx",
+      "type": "integration",
+      "testCount": 11,
+      "description": "반복 일정 수정 통합 테스트"
+    }
+  ],
+  "totalTests": 11,
+  "testCases": [
+    {
+      "name": "반복 일정 수정 시 다이얼로그가 표시된다",
+      "priority": "Critical",
+      "group": "다이얼로그 표시"
+    },
+    {
+      "name": "단일 일정 수정 시 다이얼로그가 표시되지 않는다",
+      "priority": "Critical",
+      "group": "다이얼로그 표시"
+    },
+    {
+      "name": "\"예\" 버튼 클릭 시 단일 일정으로 변경된다",
+      "priority": "Critical",
+      "group": "단일 수정"
+    },
+    {
+      "name": "단일 수정 시 반복일정 아이콘이 사라진다",
+      "priority": "Important",
+      "group": "단일 수정"
+    },
+    {
+      "name": "\"아니오\" 버튼 클릭 시 반복 정보가 유지된다",
+      "priority": "Critical",
+      "group": "전체 수정"
+    },
+    {
+      "name": "\"취소\" 버튼 클릭 시 수정이 취소된다",
+      "priority": "Critical",
+      "group": "수정 취소"
+    },
+    {
+      "name": "취소 후 다시 저장 버튼 클릭 시 다이얼로그가 다시 표시된다",
+      "priority": "Nice to have",
+      "group": "수정 취소"
+    },
+    {
+      "name": "API 요청 실패 시 에러 메시지가 표시된다",
+      "priority": "Critical",
+      "group": "에러 처리"
+    },
+    {
+      "name": "다이얼로그 UI 요소가 올바르게 표시된다",
+      "priority": "Important",
+      "group": "UI 검증"
+    },
+    {
+      "name": "성공 메시지가 표시된다",
+      "priority": "Important",
+      "group": "UI 검증"
+    }
+  ],
+  "createdAt": "2025-10-31T15:10:00Z"
+}

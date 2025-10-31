@@ -2,10 +2,30 @@ import AutorenewIcon from '@mui/icons-material/Autorenew';
 import CakeIcon from '@mui/icons-material/Cake';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import EventRepeatIcon from '@mui/icons-material/EventRepeat';
-import { Tooltip } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
+import { memo, type ComponentType } from 'react';
 
 import type { RepeatType } from '../types';
 import { getRepeatIconLabel } from '../utils/repeatEventDisplay';
+
+/**
+ * 아이콘 크기 매핑 (px)
+ */
+const ICON_SIZE_MAP = {
+  small: '16px',
+  medium: '20px',
+  large: '24px',
+} as const;
+
+/**
+ * 반복 유형별 아이콘 컴포넌트 매핑
+ */
+const REPEAT_ICON_MAP: Record<Exclude<RepeatType, 'none'>, ComponentType<{ sx?: object }>> = {
+  daily: AutorenewIcon,
+  weekly: EventRepeatIcon,
+  monthly: CalendarMonthIcon,
+  yearly: CakeIcon,
+} as const;
 
 interface RepeatEventIconProps {
   repeatType: RepeatType;
@@ -23,7 +43,7 @@ interface RepeatEventIconProps {
  * @param interval - 반복 간격 (기본값: 1)
  * @param size - 아이콘 크기 (기본값: 'small')
  */
-export function RepeatEventIcon({
+export const RepeatEventIcon = memo(function RepeatEventIcon({
   repeatType,
   interval = 1,
   size = 'small',
@@ -33,53 +53,23 @@ export function RepeatEventIcon({
     return null;
   }
 
-  // 레이블 생성
   const label = getRepeatIconLabel(repeatType, interval);
+  const IconComponent = REPEAT_ICON_MAP[repeatType];
+  const iconSize = ICON_SIZE_MAP[size];
 
-  // 아이콘 크기 매핑
-  const sizeMap = {
-    small: '16px',
-    medium: '20px',
-    large: '24px',
-  };
-  const iconSize = sizeMap[size];
-
-  // 반복 유형별 아이콘 선택
-  const getIcon = () => {
-    const iconProps = {
-      sx: { fontSize: iconSize },
-    };
-
-    switch (repeatType) {
-      case 'daily':
-        return <AutorenewIcon {...iconProps} />;
-      case 'weekly':
-        return <EventRepeatIcon {...iconProps} />;
-      case 'monthly':
-        return <CalendarMonthIcon {...iconProps} />;
-      case 'yearly':
-        return <CakeIcon {...iconProps} />;
-      default:
-        return null;
-    }
-  };
-
-  const icon = getIcon();
-
-  if (!icon) {
-    return null;
-  }
-
-  // Tooltip과 접근성 속성을 위한 wrapper
   return (
     <Tooltip title={label}>
-      <span
+      <Box
+        component="span"
         role="img"
         aria-label={`반복 일정: ${label.replace(' 반복', '')}`}
-        style={{ display: 'inline-flex', alignItems: 'center' }}
+        sx={{
+          display: 'inline-flex',
+          alignItems: 'center',
+        }}
       >
-        {icon}
-      </span>
+        <IconComponent sx={{ fontSize: iconSize }} />
+      </Box>
     </Tooltip>
   );
-}
+});

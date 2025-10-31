@@ -14,7 +14,6 @@ import {
   FormControlLabel,
   FormLabel,
   IconButton,
-  InputLabel,
   MenuItem,
   Select,
   Stack,
@@ -60,6 +59,9 @@ const notificationOptions = [
   { value: 120, label: '2시간 전' },
   { value: 1440, label: '1일 전' },
 ];
+
+// 반복 일정 관련 상수
+const MAX_REPEAT_END_DATE = '2025-12-31' as const;
 
 function App() {
   const {
@@ -121,7 +123,7 @@ function App() {
 
     // 반복 종료일 검증
     if (isRepeating && repeatEndDate) {
-      const endDateError = validateRepeatEndDate(date, repeatEndDate, '2025-12-31');
+      const endDateError = validateRepeatEndDate(date, repeatEndDate, MAX_REPEAT_END_DATE);
       if (endDateError) {
         enqueueSnackbar(endDateError, { variant: 'error' });
         return;
@@ -425,7 +427,7 @@ function App() {
                 <Checkbox
                   checked={isRepeating}
                   onChange={(e) => setIsRepeating(e.target.checked)}
-                  inputProps={{ 'aria-label': '반복 일정' } as React.InputHTMLAttributes<HTMLInputElement>}
+                  inputProps={{ 'aria-label': '반복 일정' }}
                 />
               }
               label="반복 일정"
@@ -485,7 +487,7 @@ function App() {
                     type="date"
                     value={repeatEndDate}
                     onChange={(e) => setRepeatEndDate(e.target.value)}
-                    slotProps={{ htmlInput: { max: '2025-12-31' } }}
+                    slotProps={{ htmlInput: { max: MAX_REPEAT_END_DATE } }}
                   />
                 </FormControl>
               </Stack>

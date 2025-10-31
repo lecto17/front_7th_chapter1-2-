@@ -450,13 +450,12 @@ function App() {
 
           {isRepeating && (
             <Stack spacing={2}>
-              <FormControl fullWidth size="small">
-                <InputLabel id="repeat-type-label">반복 유형</InputLabel>
-                <Select
-                  labelId="repeat-type-label"
+              <FormControl fullWidth>
+                <FormLabel htmlFor="repeat-type">반복 유형</FormLabel>
+                <TextField
                   id="repeat-type"
+                  select
                   size="small"
-                  label="반복 유형"
                   value={repeatType}
                   onChange={(e) => setRepeatType(e.target.value as RepeatType)}
                 >
@@ -464,7 +463,7 @@ function App() {
                   <MenuItem value="weekly">매주</MenuItem>
                   <MenuItem value="monthly">매월</MenuItem>
                   <MenuItem value="yearly">매년</MenuItem>
-                </Select>
+                </TextField>
               </FormControl>
               <Stack direction="row" spacing={2}>
                 <FormControl fullWidth>

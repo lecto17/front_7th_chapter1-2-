@@ -14,6 +14,7 @@ import {
   FormControlLabel,
   FormLabel,
   IconButton,
+  InputLabel,
   MenuItem,
   Select,
   Stack,
@@ -35,8 +36,7 @@ import { useEventForm } from './hooks/useEventForm.ts';
 import { useEventOperations } from './hooks/useEventOperations.ts';
 import { useNotifications } from './hooks/useNotifications.ts';
 import { useSearch } from './hooks/useSearch.ts';
-// import { Event, EventForm, RepeatType } from './types';
-import { Event, EventForm } from './types';
+import { Event, EventForm, RepeatType } from './types';
 import {
   formatDate,
   formatMonth,
@@ -46,6 +46,7 @@ import {
   getWeeksAtMonth,
 } from './utils/dateUtils';
 import { findOverlappingEvents } from './utils/eventOverlap';
+import { validateRepeatEndDate } from './utils/repeatEndDateValidation';
 import { getTimeErrorMessage } from './utils/timeValidation';
 
 const categories = ['업무', '개인', '가족', '기타'];
@@ -116,6 +117,15 @@ function App() {
     if (startTimeError || endTimeError) {
       enqueueSnackbar('시간 설정을 확인해주세요.', { variant: 'error' });
       return;
+    }
+
+    // 반복 종료일 검증
+    if (isRepeating && repeatEndDate) {
+      const endDateError = validateRepeatEndDate(date, repeatEndDate, '2025-12-31');
+      if (endDateError) {
+        enqueueSnackbar(endDateError, { variant: 'error' });
+        return;
+      }
     }
 
     const eventData: Event | EventForm = {
@@ -415,6 +425,7 @@ function App() {
                 <Checkbox
                   checked={isRepeating}
                   onChange={(e) => setIsRepeating(e.target.checked)}
+                  inputProps={{ 'aria-label': '반복 일정' } as React.InputHTMLAttributes<HTMLInputElement>}
                 />
               }
               label="반복 일정"
@@ -437,13 +448,15 @@ function App() {
             </Select>
           </FormControl>
 
-          {/* ! 반복은 8주차 과제에 포함됩니다. 구현하고 싶어도 참아주세요~ */}
-          {/* {isRepeating && (
+          {isRepeating && (
             <Stack spacing={2}>
-              <FormControl fullWidth>
-                <FormLabel>반복 유형</FormLabel>
+              <FormControl fullWidth size="small">
+                <InputLabel id="repeat-type-label">반복 유형</InputLabel>
                 <Select
+                  labelId="repeat-type-label"
+                  id="repeat-type"
                   size="small"
+                  label="반복 유형"
                   value={repeatType}
                   onChange={(e) => setRepeatType(e.target.value as RepeatType)}
                 >
@@ -455,8 +468,9 @@ function App() {
               </FormControl>
               <Stack direction="row" spacing={2}>
                 <FormControl fullWidth>
-                  <FormLabel>반복 간격</FormLabel>
+                  <FormLabel htmlFor="repeat-interval">반복 간격</FormLabel>
                   <TextField
+                    id="repeat-interval"
                     size="small"
                     type="number"
                     value={repeatInterval}
@@ -465,17 +479,19 @@ function App() {
                   />
                 </FormControl>
                 <FormControl fullWidth>
-                  <FormLabel>반복 종료일</FormLabel>
+                  <FormLabel htmlFor="repeat-end-date">반복 종료일</FormLabel>
                   <TextField
+                    id="repeat-end-date"
                     size="small"
                     type="date"
                     value={repeatEndDate}
                     onChange={(e) => setRepeatEndDate(e.target.value)}
+                    slotProps={{ htmlInput: { max: '2025-12-31' } }}
                   />
                 </FormControl>
               </Stack>
             </Stack>
-          )} */}
+          )}
 
           <Button
             data-testid="event-submit-button"
@@ -562,8 +578,7 @@ function App() {
                         {event.repeat.type === 'weekly' && '주'}
                         {event.repeat.type === 'monthly' && '월'}
                         {event.repeat.type === 'yearly' && '년'}
-                        마다
-                        {event.repeat.endDate && ` (종료: ${event.repeat.endDate})`}
+                        마다{event.repeat.endDate ? ` (종료: ${event.repeat.endDate})` : ''}
                       </Typography>
                     )}
                     <Typography>

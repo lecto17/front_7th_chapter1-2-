@@ -1,0 +1,1261 @@
+
+> assignment@0.0.0 test
+> vitest src/__tests__/medium.integration.spec.tsx --run
+
+
+[1m[46m RUN [49m[22m [36mv3.2.4 [39m[90mC:/work/hanghae/front_7th_chapter1-2[39m
+
+ [31m❯[39m src/__tests__/medium.integration.spec.tsx [2m([22m[2m23 tests[22m[2m | [22m[31m9 failed[39m[2m)[22m[33m 29015[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 CRUD 및 기본 기능[2m > [22m입력한 새로운 일정 정보에 맞춰 모든 필드가 이벤트 리스트에 정확히 저장된다. [33m 3692[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 CRUD 및 기본 기능[2m > [22m기존 일정의 세부 정보를 수정하고 변경사항이 정확히 반영된다 [33m 1824[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 CRUD 및 기본 기능[2m > [22m일정을 삭제하고 더 이상 조회되지 않는지 확인한다 [33m 448[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 뷰[2m > [22m주별 뷰를 선택 후 해당 주에 일정이 없으면, 일정이 표시되지 않는다. [33m 452[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 뷰[2m > [22m주별 뷰 선택 후 해당 일자에 일정이 존재한다면 해당 일정이 정확히 표시된다 [33m 3796[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 뷰[2m > [22m월별 뷰에 일정이 없으면, 일정이 표시되지 않아야 한다. [33m 334[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 뷰[2m > [22m월별 뷰에 일정이 정확히 표시되는지 확인한다 [33m 3543[2mms[22m[39m
+   [32m✓[39m 일정 뷰[2m > [22m달력에 1월 1일(신정)이 공휴일로 표시되는지 확인한다[32m 148[2mms[22m[39m
+   [33m[2m✓[22m[39m 검색 기능[2m > [22m검색 결과가 없으면, "검색 결과가 없습니다."가 표시되어야 한다. [33m 571[2mms[22m[39m
+   [33m[2m✓[22m[39m 검색 기능[2m > [22m'팀 회의'를 검색하면 해당 제목을 가진 일정이 리스트에 노출된다 [33m 498[2mms[22m[39m
+   [33m[2m✓[22m[39m 검색 기능[2m > [22m검색어를 지우면 모든 일정이 다시 표시되어야 한다 [33m 422[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 충돌[2m > [22m겹치는 시간에 새 일정을 추가할 때 경고가 표시된다 [33m 2986[2mms[22m[39m
+   [33m[2m✓[22m[39m 일정 충돌[2m > [22m기존 일정의 시간을 수정하여 충돌이 발생하면 경고가 노출된다 [33m 1594[2mms[22m[39m
+   [33m[2m✓[22m[39m notificationTime을 10으로 하면 지정 시간 10분 전 알람 텍스트가 노출된다 [33m 330[2mms[22m[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 설정 UI[2m > [22m반복 체크박스 체크 시 반복 설정 UI가 표시된다[39m[33m 304[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 유형/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m""[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+                      [36m<...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 설정 UI[2m > [22m반복 체크박스 해제 시 반복 설정 UI가 숨겨진다[39m[32m 214[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 유형/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m""[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+                      [36m<...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 설정 UI[2m > [22m반복 종료일 필드에 최대 날짜 제한이 설정되어 있다[39m[32m 256[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 종료일/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m""[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+                      [36m<...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 종료일 검증[2m > [22m종료일이 시작일보다 이전인 경우 에러 메시지가 표시된다[39m[33m 1807[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 유형/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m"주간 회의"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m"2025-11-10"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m"14:00"[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+        ...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 일정 생성[2m > [22m종료일이 있는 반복 일정은 종료일까지만 생성된다[39m[33m 1859[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 유형/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m"매주 운동"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m"2025-11-01"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m"10:00"[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+        ...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 일정 생성[2m > [22m종료일 없는 반복 일정은 최대 100개까지 생성된다[39m[33m 1858[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 유형/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m"매일 알림"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m"2025-01-01"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m"09:00"[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+        ...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 일정 생성[2m > [22m종료일까지 1개의 일정만 생성되는 경우를 처리한다[39m[33m 1682[2mms[22m[39m
+[31m     → Unable to find a label with the text of: /반복 유형/i
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m"특별 회의"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m"2025-12-30"[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m"14:00"[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+        ...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 일정 표시[2m > [22m일정 목록에서 반복 종료일 정보가 표시된다[39m[32m 200[2mms[22m[39m
+[31m     → Unable to find an element with the text: /반복: 2주마다 \(종료: 2025-12-31\)/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m""[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+                      [36m<...[39m
+[31m   [31m×[31m 반복 일정 종료 조건 설정[2m > [22m반복 일정 표시[2m > [22m종료일 없는 반복 일정은 종료일 정보를 표시하지 않는다[39m[32m 187[2mms[22m[39m
+[31m     → Unable to find an element with the text: /반복: 1일마다/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mstyle[31m=[32m""[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"MuiBox-root css-1brn287"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"MuiStack-root css-ywpscz-MuiStack-root"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"MuiStack-root css-sldt5f-MuiStack-root"[31m
+        [36m>[31m
+          [36m<h4[31m
+            [33mclass[31m=[32m"MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"[31m
+          [36m>[31m
+            [0m일정 추가[0m
+          [36m</h4>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"title"[31m
+            [36m>[31m
+              [0m제목[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"title"[31m
+                  [33mtype[31m=[32m"text"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+          [36m>[31m
+            [36m<label[31m
+              [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+              [33mfor[31m=[32m"date"[31m
+            [36m>[31m
+              [0m날짜[0m
+            [36m</label>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+            [36m>[31m
+              [36m<div[31m
+                [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+              [36m>[31m
+                [36m<input[31m
+                  [33maria-invalid[31m=[32m"false"[31m
+                  [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                  [33mid[31m=[32m"date"[31m
+                  [33mtype[31m=[32m"date"[31m
+                  [33mvalue[31m=[32m""[31m
+                [36m/>[31m
+                [36m<fieldset[31m
+                  [33maria-hidden[31m=[32m"true"[31m
+                  [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                [36m>[31m
+                  [36m<legend[31m
+                    [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                  [36m>[31m
+                    [36m<span[31m
+                      [33maria-hidden[31m=[32m"true"[31m
+                      [33mclass[31m=[32m"notranslate"[31m
+                    [36m>[31m
+                      [0m​[0m
+                    [36m</span>[31m
+                  [36m</legend>[31m
+                [36m</fieldset>[31m
+              [36m</div>[31m
+            [36m</div>[31m
+          [36m</div>[31m
+          [36m<div[31m
+            [33mclass[31m=[32m"MuiStack-root css-pl8gqh-MuiStack-root"[31m
+          [36m>[31m
+            [36m<div[31m
+              [33mclass[31m=[32m"MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"[31m
+            [36m>[31m
+              [36m<label[31m
+                [33mclass[31m=[32m"MuiFormLabel-root MuiFormLabel-colorPrimary css-nwsdb5-MuiFormLabel-root"[31m
+                [33mfor[31m=[32m"start-time"[31m
+              [36m>[31m
+                [0m시작 시간[0m
+              [36m</label>[31m
+              [36m<div[31m
+                [33maria-label[31m=[32m""[31m
+                [33mclass[31m=[32m"MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"[31m
+                [33mdata-mui-internal-clone-element[31m=[32m"true"[31m
+              [36m>[31m
+                [36m<div[31m
+                  [33mclass[31m=[32m"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"[31m
+                [36m>[31m
+                  [36m<input[31m
+                    [33maria-invalid[31m=[32m"false"[31m
+                    [33mclass[31m=[32m"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"[31m
+                    [33mid[31m=[32m"start-time"[31m
+                    [33mtype[31m=[32m"time"[31m
+                    [33mvalue[31m=[32m""[31m
+                  [36m/>[31m
+                  [36m<fieldset[31m
+                    [33maria-hidden[31m=[32m"true"[31m
+                    [33mclass[31m=[32m"MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"[31m
+                  [36m>[31m
+                    [36m<legend[31m
+                      [33mclass[31m=[32m"css-1nf2c5d-MuiNotchedOutlined-root"[31m
+                    [36m>[31m
+                      [36m<...[39m
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m9 failed[39m[22m[2m | [22m[1m[32m14 passed[39m[22m[90m (23)[39m
+[2m   Start at [22m 01:31:50
+[2m   Duration [22m 38.59s[2m (transform 223ms, setup 287ms, collect 8.00s, tests 29.01s, environment 696ms, prepare 191ms)[22m
+

@@ -340,3 +340,249 @@ it('notificationTime을 10으로 하면 지정 시간 10분 전 알람 텍스트
 
   expect(screen.getByText('10분 후 기존 회의 일정이 시작됩니다.')).toBeInTheDocument();
 });
+
+describe('반복 일정 종료 조건 설정', () => {
+  describe('반복 설정 UI', () => {
+    it('반복 체크박스 체크 시 반복 설정 UI가 표시된다', async () => {
+      // Arrange
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // Act
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+
+      // Assert
+      expect(screen.getByLabelText(/반복 유형/i)).toBeInTheDocument();
+      expect(screen.getByLabelText(/반복 간격/i)).toBeInTheDocument();
+      expect(screen.getByLabelText(/반복 종료일/i)).toBeInTheDocument();
+    });
+
+    it('반복 체크박스 해제 시 반복 설정 UI가 숨겨진다', async () => {
+      // Arrange
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // 먼저 체크
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+      expect(screen.getByLabelText(/반복 유형/i)).toBeInTheDocument();
+
+      // Act - 다시 클릭하여 해제
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+
+      // Assert
+      expect(screen.queryByLabelText(/반복 유형/i)).not.toBeInTheDocument();
+      expect(screen.queryByLabelText(/반복 간격/i)).not.toBeInTheDocument();
+      expect(screen.queryByLabelText(/반복 종료일/i)).not.toBeInTheDocument();
+    });
+
+    it('반복 종료일 필드에 최대 날짜 제한이 설정되어 있다', async () => {
+      // Arrange
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // Act
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+      const repeatEndDateInput = screen.getByLabelText(/반복 종료일/i);
+
+      // Assert
+      expect(repeatEndDateInput).toHaveAttribute('max', '2025-12-31');
+      expect(repeatEndDateInput).toHaveAttribute('type', 'date');
+    });
+  });
+
+  describe('반복 종료일 검증', () => {
+    it('종료일이 시작일보다 이전인 경우 에러 메시지가 표시된다', async () => {
+      // Arrange
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // Act - 일정 정보 입력
+      await user.type(screen.getByLabelText('제목'), '주간 회의');
+      await user.type(screen.getByLabelText('날짜'), '2025-11-10');
+      await user.type(screen.getByLabelText('시작 시간'), '14:00');
+      await user.type(screen.getByLabelText('종료 시간'), '15:00');
+
+      // 반복 설정
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+      await user.click(screen.getByLabelText(/반복 유형/i));
+      await user.click(screen.getByText('매주'));
+      await user.clear(screen.getByLabelText(/반복 간격/i));
+      await user.type(screen.getByLabelText(/반복 간격/i), '1');
+      await user.type(screen.getByLabelText(/반복 종료일/i), '2025-11-05');
+
+      // 일정 추가 버튼 클릭
+      await user.click(screen.getByTestId('event-submit-button'));
+
+      // Assert - 에러 메시지 표시
+      expect(await screen.findByText(/종료일은 시작일 이후여야 합니다/i)).toBeInTheDocument();
+    });
+  });
+
+  describe('반복 일정 생성', () => {
+    it('종료일이 있는 반복 일정은 종료일까지만 생성된다', async () => {
+      // Arrange
+      setupMockHandlerCreation();
+      vi.setSystemTime(new Date('2025-11-01T00:00:00Z'));
+
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // Act - 일정 정보 입력
+      await user.type(screen.getByLabelText('제목'), '매주 운동');
+      await user.type(screen.getByLabelText('날짜'), '2025-11-01');
+      await user.type(screen.getByLabelText('시작 시간'), '10:00');
+      await user.type(screen.getByLabelText('종료 시간'), '11:00');
+
+      // 반복 설정
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+      await user.click(screen.getByLabelText(/반복 유형/i));
+      await user.click(screen.getByText('매주'));
+      await user.clear(screen.getByLabelText(/반복 간격/i));
+      await user.type(screen.getByLabelText(/반복 간격/i), '1');
+      await user.type(screen.getByLabelText(/반복 종료일/i), '2025-11-30');
+
+      // 일정 추가 버튼 클릭
+      await user.click(screen.getByTestId('event-submit-button'));
+
+      // Assert - 성공 메시지 표시
+      expect(await screen.findByText(/5개의 반복 일정이 생성되었습니다/i)).toBeInTheDocument();
+    });
+
+    it('종료일 없는 반복 일정은 최대 100개까지 생성된다', async () => {
+      // Arrange
+      setupMockHandlerCreation();
+      vi.setSystemTime(new Date('2025-01-01T00:00:00Z'));
+
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // Act - 일정 정보 입력
+      await user.type(screen.getByLabelText('제목'), '매일 알림');
+      await user.type(screen.getByLabelText('날짜'), '2025-01-01');
+      await user.type(screen.getByLabelText('시작 시간'), '09:00');
+      await user.type(screen.getByLabelText('종료 시간'), '09:30');
+
+      // 반복 설정 (종료일 비워둠)
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+      await user.click(screen.getByLabelText(/반복 유형/i));
+      await user.click(screen.getByText('매일'));
+      await user.clear(screen.getByLabelText(/반복 간격/i));
+      await user.type(screen.getByLabelText(/반복 간격/i), '1');
+
+      // 일정 추가 버튼 클릭
+      await user.click(screen.getByTestId('event-submit-button'));
+
+      // Assert - 경고 메시지와 성공 메시지 표시
+      expect(
+        await screen.findByText(/반복 일정이 너무 많아 100개까지만 생성되었습니다/i)
+      ).toBeInTheDocument();
+      expect(await screen.findByText(/100개의 반복 일정이 생성되었습니다/i)).toBeInTheDocument();
+    });
+
+    it('종료일까지 1개의 일정만 생성되는 경우를 처리한다', async () => {
+      // Arrange
+      setupMockHandlerCreation();
+      vi.setSystemTime(new Date('2025-12-30T00:00:00Z'));
+
+      const { user } = setup(<App />);
+      await screen.findByText('일정 로딩 완료!');
+
+      // Act - 일정 정보 입력
+      await user.type(screen.getByLabelText('제목'), '특별 회의');
+      await user.type(screen.getByLabelText('날짜'), '2025-12-30');
+      await user.type(screen.getByLabelText('시작 시간'), '14:00');
+      await user.type(screen.getByLabelText('종료 시간'), '15:00');
+
+      // 반복 설정
+      await user.click(screen.getByRole('checkbox', { name: /반복 일정/i }));
+      await user.click(screen.getByLabelText(/반복 유형/i));
+      await user.click(screen.getByText('매주'));
+      await user.clear(screen.getByLabelText(/반복 간격/i));
+      await user.type(screen.getByLabelText(/반복 간격/i), '1');
+      await user.type(screen.getByLabelText(/반복 종료일/i), '2025-12-31');
+
+      // 일정 추가 버튼 클릭
+      await user.click(screen.getByTestId('event-submit-button'));
+
+      // Assert - 1개 생성 메시지
+      expect(await screen.findByText(/1개의 반복 일정이 생성되었습니다/i)).toBeInTheDocument();
+    });
+  });
+
+  describe('반복 일정 표시', () => {
+    it('일정 목록에서 반복 종료일 정보가 표시된다', async () => {
+      // Arrange
+      server.use(
+        http.get('/api/events', () => {
+          return HttpResponse.json({
+            events: [
+              {
+                id: '1',
+                title: '주간 회의',
+                date: '2025-11-01',
+                startTime: '14:00',
+                endTime: '15:00',
+                description: '프로젝트 리뷰',
+                location: '회의실 A',
+                category: '업무',
+                repeat: {
+                  type: 'weekly',
+                  interval: 2,
+                  endDate: '2025-12-31',
+                },
+                notificationTime: 10,
+              },
+            ],
+          });
+        })
+      );
+
+      setup(<App />);
+
+      // Act - 초기 렌더링 후 일정 목록 로드 대기
+      await screen.findByText('일정 로딩 완료!');
+
+      // Assert
+      expect(screen.getByText(/반복: 2주마다 \(종료: 2025-12-31\)/i)).toBeInTheDocument();
+    });
+
+    it('종료일 없는 반복 일정은 종료일 정보를 표시하지 않는다', async () => {
+      // Arrange
+      server.use(
+        http.get('/api/events', () => {
+          return HttpResponse.json({
+            events: [
+              {
+                id: '2',
+                title: '매일 운동',
+                date: '2025-11-01',
+                startTime: '10:00',
+                endTime: '11:00',
+                description: '',
+                location: '',
+                category: '개인',
+                repeat: {
+                  type: 'daily',
+                  interval: 1,
+                  endDate: undefined,
+                },
+                notificationTime: 10,
+              },
+            ],
+          });
+        })
+      );
+
+      setup(<App />);
+
+      // Act - 초기 렌더링 후 일정 목록 로드 대기
+      await screen.findByText('일정 로딩 완료!');
+
+      // Assert
+      expect(screen.getByText(/반복: 1일마다/i)).toBeInTheDocument();
+      
+      const eventList = screen.getByTestId('event-list');
+      expect(within(eventList).queryByText(/종료:/i)).not.toBeInTheDocument();
+    });
+  });
+});

@@ -1,0 +1,89 @@
+{
+  "taskId": "task-20251031-000000",
+  "featureName": "반복 일정 기능",
+  "testFiles": [
+    {
+      "path": "src/__tests__/unit/easy.repeatEventUtils.spec.ts",
+      "type": "unit",
+      "testCount": 22,
+      "description": "반복 일정 생성 유틸리티 함수 테스트 (generateRepeatEvents, getNextOccurrenceDate, isValidRepeatDate)",
+      "testGroups": [
+        {
+          "name": "generateRepeatEvents - 매일 반복",
+          "count": 2
+        },
+        {
+          "name": "generateRepeatEvents - 매주 반복",
+          "count": 2
+        },
+        {
+          "name": "generateRepeatEvents - 매월 반복",
+          "count": 4
+        },
+        {
+          "name": "generateRepeatEvents - 매년 반복",
+          "count": 3
+        },
+        {
+          "name": "generateRepeatEvents - 제한 조건",
+          "count": 4
+        },
+        {
+          "name": "getNextOccurrenceDate",
+          "count": 6
+        },
+        {
+          "name": "isValidRepeatDate",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "src/__tests__/hooks/medium.useEventOperations.spec.ts",
+      "type": "hook",
+      "testCount": 5,
+      "description": "반복 일정 저장/수정/에러 처리 테스트",
+      "testGroups": [
+        {
+          "name": "반복 일정 저장 시 /api/events-list 호출",
+          "count": 1
+        },
+        {
+          "name": "일반 일정 저장 시 기존 /api/events 호출 유지",
+          "count": 1
+        },
+        {
+          "name": "반복 일정 수정 시 개별 이벤트만 수정",
+          "count": 1
+        },
+        {
+          "name": "반복 일정 생성 실패 시 에러 처리",
+          "count": 1
+        },
+        {
+          "name": "반복 일정 100개 초과 시 경고",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "totalTests": 27,
+  "testSummary": {
+    "unit": 22,
+    "hook": 5,
+    "integration": 0
+  },
+  "priority": {
+    "critical": 18,
+    "important": 8,
+    "nice_to_have": 1
+  },
+  "createdAt": "2025-10-31T07:48:00Z",
+  "status": "red",
+  "notes": [
+    "통합 테스트 3개는 선택적이므로 작성하지 않음",
+    "모든 테스트가 예상대로 실패함 (RED 단계 확인 완료)",
+    "구현되지 않은 파일: src/utils/repeatEventUtils.ts",
+    "수정 필요 파일: src/hooks/useEventOperations.ts"
+  ]
+}

@@ -291,6 +291,7 @@ pnpm build        # 프로덕션 빌드
 - `console.log` 프로덕션 코드에서 제거
 - `any` 타입 사용 금지
 - 테스트에서 `getByTestId` 최소화 (접근성 쿼리 우선)
+- 프롬프팅에 대한 결과를 출력해줄 때, 이모지 절대 사용하지 않을 것(MUST NOT USE EMOJI)
 
 ---
 

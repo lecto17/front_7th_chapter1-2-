@@ -171,3 +171,239 @@ it("네트워크 오류 시 '일정 삭제 실패'라는 텍스트가 노출되�
 
   expect(result.current.events).toHaveLength(1);
 });
+
+describe('반복 일정 기능', () => {
+  it('반복 일정 저장 시 /api/events-list 엔드포인트를 호출한다', async () => {
+    const eventsListSpy = vi.fn();
+
+    server.use(
+      http.post('/api/events-list', async ({ request }) => {
+        const body = await request.json();
+        eventsListSpy(body);
+        return HttpResponse.json({ success: true });
+      })
+    );
+
+    const { result } = renderHook(() => useEventOperations(false));
+
+    await act(() => Promise.resolve(null));
+
+    const repeatEvent: Event = {
+      id: '1',
+      title: '매일 회의',
+      date: '2025-01-01',
+      startTime: '10:00',
+      endTime: '11:00',
+      description: '일일 스탠드업',
+      location: '회의실 A',
+      category: '업무',
+      repeat: {
+        type: 'daily',
+        interval: 1,
+        endDate: '2025-01-03',
+      },
+      notificationTime: 10,
+    };
+
+    await act(async () => {
+      await result.current.saveEvent(repeatEvent);
+    });
+
+    expect(eventsListSpy).toHaveBeenCalledTimes(1);
+    const calledBody = eventsListSpy.mock.calls[0][0];
+    expect(calledBody.events).toHaveLength(3);
+    expect(calledBody.events[0].date).toBe('2025-01-01');
+    expect(calledBody.events[1].date).toBe('2025-01-02');
+    expect(calledBody.events[2].date).toBe('2025-01-03');
+
+    expect(enqueueSnackbarFn).toHaveBeenCalledWith('3개의 반복 일정이 생성되었습니다', {
+      variant: 'success',
+    });
+
+    server.resetHandlers();
+  });
+
+  it('일반 일정(type=none) 저장 시 기존 /api/events 엔드포인트를 호출한다', async () => {
+    const eventsSpy = vi.fn();
+    const eventsListSpy = vi.fn();
+
+    server.use(
+      http.post('/api/events', async ({ request }) => {
+        const body = await request.json();
+        eventsSpy(body);
+        return HttpResponse.json({ success: true, event: { ...(body as Event), id: '2' } });
+      }),
+      http.post('/api/events-list', async () => {
+        eventsListSpy();
+        return HttpResponse.json({ success: true });
+      })
+    );
+
+    const { result } = renderHook(() => useEventOperations(false));
+
+    await act(() => Promise.resolve(null));
+
+    const normalEvent: Event = {
+      id: '2',
+      title: '일반 회의',
+      date: '2025-01-10',
+      startTime: '14:00',
+      endTime: '15:00',
+      description: '',
+      location: '',
+      category: '업무',
+      repeat: {
+        type: 'none',
+        interval: 1,
+      },
+      notificationTime: 10,
+    };
+
+    await act(async () => {
+      await result.current.saveEvent(normalEvent);
+    });
+
+    expect(eventsSpy).toHaveBeenCalledTimes(1);
+    expect(eventsListSpy).not.toHaveBeenCalled();
+
+    expect(enqueueSnackbarFn).toHaveBeenCalledWith('일정이 추가되었습니다', {
+      variant: 'success',
+    });
+
+    server.resetHandlers();
+  });
+
+  it('반복 일정 수정 시 개별 이벤트만 수정한다 (PUT /api/events/:id)', async () => {
+    const updateSpy = vi.fn();
+
+    server.use(
+      http.put('/api/events/:id', async ({ request, params }) => {
+        const body = await request.json();
+        updateSpy({ id: params.id, body });
+        return HttpResponse.json({ success: true, event: { ...(body as Event), id: params.id } });
+      })
+    );
+
+    const { result } = renderHook(() => useEventOperations(true));
+
+    await act(() => Promise.resolve(null));
+
+    const updatedRepeatEvent: Event = {
+      id: '1',
+      title: '수정된 반복 회의',
+      date: '2025-10-15',
+      startTime: '10:00',
+      endTime: '12:00',
+      description: '시간 연장',
+      location: '회의실 B',
+      category: '업무',
+      repeat: {
+        type: 'weekly',
+        interval: 1,
+        endDate: '2025-11-15',
+      },
+      notificationTime: 10,
+    };
+
+    await act(async () => {
+      await result.current.saveEvent(updatedRepeatEvent);
+    });
+
+    expect(updateSpy).toHaveBeenCalledTimes(1);
+    expect(updateSpy.mock.calls[0][0].id).toBe('1');
+
+    server.resetHandlers();
+  });
+
+  it('반복 일정 생성 실패 시 에러 메시지를 표시한다', async () => {
+    server.use(
+      http.post('/api/events-list', () => {
+        return new HttpResponse(null, { status: 500 });
+      })
+    );
+
+    const { result } = renderHook(() => useEventOperations(false));
+
+    await act(() => Promise.resolve(null));
+
+    const initialEventsLength = result.current.events.length;
+
+    const repeatEvent: Event = {
+      id: '99',
+      title: '실패할 반복 일정',
+      date: '2025-02-01',
+      startTime: '10:00',
+      endTime: '11:00',
+      description: '',
+      location: '',
+      category: '업무',
+      repeat: {
+        type: 'daily',
+        interval: 1,
+        endDate: '2025-02-05',
+      },
+      notificationTime: 10,
+    };
+
+    await act(async () => {
+      await result.current.saveEvent(repeatEvent);
+    });
+
+    expect(enqueueSnackbarFn).toHaveBeenCalledWith(
+      '반복 일정 생성에 실패했습니다. 다시 시도해주세요.',
+      { variant: 'error' }
+    );
+
+    expect(result.current.events).toHaveLength(initialEventsLength);
+
+    server.resetHandlers();
+  });
+
+  it('반복 일정이 100개 초과 시 100개만 생성하고 경고를 표시한다', async () => {
+    const eventsListSpy = vi.fn();
+
+    server.use(
+      http.post('/api/events-list', async ({ request }) => {
+        const body = await request.json();
+        eventsListSpy(body);
+        return HttpResponse.json({ success: true });
+      })
+    );
+
+    const { result } = renderHook(() => useEventOperations(false));
+
+    await act(() => Promise.resolve(null));
+
+    const repeatEvent: Event = {
+      id: '100',
+      title: '매일 반복 (365일)',
+      date: '2025-01-01',
+      startTime: '10:00',
+      endTime: '11:00',
+      description: '',
+      location: '',
+      category: '업무',
+      repeat: {
+        type: 'daily',
+        interval: 1,
+        endDate: '2026-01-01', // 365일
+      },
+      notificationTime: 10,
+    };
+
+    await act(async () => {
+      await result.current.saveEvent(repeatEvent);
+    });
+
+    expect(eventsListSpy).toHaveBeenCalledTimes(1);
+    const calledBody = eventsListSpy.mock.calls[0][0];
+    expect(calledBody.events).toHaveLength(100);
+
+    expect(enqueueSnackbarFn).toHaveBeenCalledWith(
+      '반복 일정이 너무 많아 100개까지만 생성되었습니다',
+      { variant: 'warning' }
+    );
+
+    server.resetHandlers();
+  });
+});

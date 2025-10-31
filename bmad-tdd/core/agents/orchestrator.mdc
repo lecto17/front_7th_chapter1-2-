@@ -46,6 +46,10 @@ alwaysApply: false
 **수행 작업:**
 
 1. 고유 task-id 생성 (형식: `task-YYYYMMDD-HHMMSS`, 예: `task-20250130-143022`)
+
+- 절대(MUST NOT) 금지: `000000`, `123456` 같은 임의의 값 사용
+- 올바른 방법: 워크플로우 생성 시점의 실제 현재 시각 사용
+
 2. 기능 이름 추출/요약 (사용자 입력에서)
 3. 상태 파일 생성: `bmad-tdd/_cfg/state/current-task.json`
 4. 다음 단계 안내

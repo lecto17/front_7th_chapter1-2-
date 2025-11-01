@@ -107,6 +107,8 @@ function App() {
 
   const [isOverlapDialogOpen, setIsOverlapDialogOpen] = useState(false);
   const [overlappingEvents, setOverlappingEvents] = useState<Event[]>([]);
+  const [isRepeatEditDialogOpen, setIsRepeatEditDialogOpen] = useState(false);
+  const [pendingEventData, setPendingEventData] = useState<Event | EventForm | null>(null);
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -147,6 +149,13 @@ function App() {
       notificationTime,
     };
 
+    // 반복 일정 수정 시 다이얼로그 표시
+    if (editingEvent && editingEvent.repeat.type !== 'none') {
+      setPendingEventData(eventData);
+      setIsRepeatEditDialogOpen(true);
+      return;
+    }
+
     const overlapping = findOverlappingEvents(eventData, events);
     if (overlapping.length > 0) {
       setOverlappingEvents(overlapping);
@@ -155,6 +164,41 @@ function App() {
       await saveEvent(eventData);
       resetForm();
     }
+  };
+
+  // 단일 수정 처리
+  const handleSingleEdit = async () => {
+    if (!pendingEventData) return;
+
+    const singleEventData = {
+      ...pendingEventData,
+      repeat: {
+        type: 'none' as RepeatType,
+        interval: 1,
+        endDate: undefined,
+      },
+    };
+
+    setIsRepeatEditDialogOpen(false);
+    await saveEvent(singleEventData);
+    resetForm();
+    setPendingEventData(null);
+  };
+
+  // 전체 수정 처리
+  const handleAllEdit = async () => {
+    if (!pendingEventData) return;
+
+    setIsRepeatEditDialogOpen(false);
+    await saveEvent(pendingEventData);
+    resetForm();
+    setPendingEventData(null);
+  };
+
+  // 취소 처리
+  const handleCancelEdit = () => {
+    setIsRepeatEditDialogOpen(false);
+    setPendingEventData(null);
   };
 
   const renderWeekView = () => {
@@ -644,6 +688,22 @@ function App() {
             }}
           >
             계속 진행
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={isRepeatEditDialogOpen} onClose={handleCancelEdit}>
+        <DialogTitle>반복 일정 수정</DialogTitle>
+        <DialogContent>
+          <DialogContentText>해당 일정만 수정하시겠어요?</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCancelEdit}>취소</Button>
+          <Button onClick={handleSingleEdit} color="primary">
+            예
+          </Button>
+          <Button onClick={handleAllEdit} color="primary">
+            아니오
           </Button>
         </DialogActions>
       </Dialog>

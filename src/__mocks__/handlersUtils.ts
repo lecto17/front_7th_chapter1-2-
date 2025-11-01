@@ -31,7 +31,7 @@ export const setupMockHandlerUpdating = () => {
       description: '기존 팀 미팅',
       location: '회의실 B',
       category: '업무',
-      repeat: { type: 'none', interval: 0 },
+      repeat: { type: 'weekly', interval: 1 },
       notificationTime: 10,
     },
     {

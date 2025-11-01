@@ -166,7 +166,11 @@ function App() {
     }
   };
 
-  // 단일 수정 처리
+  // ─────────────────────────────────────────────────────────
+  // 반복 일정 수정 다이얼로그 핸들러
+  // ─────────────────────────────────────────────────────────
+
+  // 단일 일정으로 변경하여 수정
   const handleSingleEdit = async () => {
     if (!pendingEventData) return;
 
@@ -185,7 +189,7 @@ function App() {
     setPendingEventData(null);
   };
 
-  // 전체 수정 처리
+  // 반복 정보를 유지하여 전체 수정
   const handleAllEdit = async () => {
     if (!pendingEventData) return;
 
@@ -195,7 +199,7 @@ function App() {
     setPendingEventData(null);
   };
 
-  // 취소 처리
+  // 수정 취소
   const handleCancelEdit = () => {
     setIsRepeatEditDialogOpen(false);
     setPendingEventData(null);
